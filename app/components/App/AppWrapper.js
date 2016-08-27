@@ -14,7 +14,7 @@ import Profile from './Profile';
 export default class AuthPageWrapper extends Component {
   render() {
     return(
-      <ScrollableTabView styles={{ marginTop: 14 }}>
+      <ScrollableTabView style={{ marginTop: 14 }}>
         <Stories tabLabel="Stories" />
         <Profile tabLabel="Profile" />
       </ScrollableTabView>

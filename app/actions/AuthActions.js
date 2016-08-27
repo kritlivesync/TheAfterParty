@@ -8,7 +8,24 @@ import {
   REGISTER_USER,
   REGISTER_USER_ERROR
 } from './Types';
-const API_URL = 'http://localhost:3030/api/v1/users';
+
+export function authOnLoad(token) {
+  return function(dispatch) {
+    axios.post('http://localhost:3030/api/v1/users/' + token)
+      .then(res => {
+        console.log(res.data.user[0]);
+        const user = {
+          username: res.data.user[0].username,
+          password: res.data.user[0].password
+        };
+        console.log(user);
+        dispatch(loginUser(user));
+      })
+      .catch(err => {
+        console.log('Error in authOnLoad', err);
+      });
+  }
+}
 
 export function loginUser(user) {
   return function(dispatch) {
@@ -16,8 +33,9 @@ export function loginUser(user) {
     console.log('In loginUser function');
     axios.post('http://localhost:3030/api/v1/users/login', user)
       .then(res => {
-        console.log(res);
-        updateToken(res.data.token);
+        console.log(res.data.user.token);
+        updateToken(res.data.user.token);
+        Actions.app({ something: 'something' });
         dispatch({
           type: LOGIN_USER,
           payload: res.data.user
@@ -38,7 +56,7 @@ export function registerUser(user) {
     axios.post('http://localhost:3030/api/v1/users/register', user)
       .then(res => {
         console.log(res);
-        updateToken(res.data.token);
+        updateToken(res.data.user.token);
         dispatch({
           type: REGISTER_USER,
           payload: res.data.user

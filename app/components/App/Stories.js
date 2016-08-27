@@ -1,20 +1,16 @@
 // dependencies
 import React, { Component } from 'react';
 import {
-  Container,
-  Content,
-  Text
-} from 'native-base';
+  View,
+} from 'react-native';
 
 // component
 export default class Stories extends Component {
   render() {
     return(
-      <Container>
-        <Content>
-          <Text>Stories Page</Text>
-        </Content>
-      </Container>
+      <View>
+        <Text>Stories Page</Text>
+      </View>
     );
   }
 }

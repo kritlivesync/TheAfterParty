@@ -26,10 +26,6 @@ const options = {
 // component
 class Register extends Component {
 
-  componentDidMount() {
-    this.refs.reg_form.getComponent('username').refs.input.focus();
-  }
-
   handlRegistration() {
     const formProps = this.refs.reg_form.getValue();
 
