@@ -1,14 +1,5 @@
 import React, { Component } from 'react';
 import { AppRegistry, Text, View } from 'react-native';
+import App from './app/components/App';
 
-class TheAfterParty extends Component {
-  render() {
-    return (
-      <View>
-        <Text>Welcome to React Native!</Text>
-      </View>
-    );
-  }
-}
-
-AppRegistry.registerComponent('TheAfterParty', () => TheAfterParty);
+AppRegistry.registerComponent('TheAfterParty', () => App);
