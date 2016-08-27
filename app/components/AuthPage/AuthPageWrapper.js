@@ -1,9 +1,5 @@
 // dependencies
 import React, { Component } from 'react';
-import {
-  Container,
-  Content
-} from 'native-base';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 
 // imports

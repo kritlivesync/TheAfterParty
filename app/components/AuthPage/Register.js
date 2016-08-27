@@ -1,16 +1,12 @@
 // dependencies
 import React, { Component } from 'react';
 import {
+  View,
   StyleSheet,
   AlertIOS
 } from 'react-native';
-import {
-  Container,
-  Content,
-  Text,
-  Button
-} from 'native-base';
 import { connect } from 'react-redux';
+import Button from 'react-native-button';
 const t = require('tcomb-form-native');
 
 // actions
@@ -53,17 +49,15 @@ class Register extends Component {
 
   render() {
     return(
-      <Content style={styles.container}>
+      <View style={styles.container}>
         <Form
           ref="reg_form"
           type={newUser}
           options={options}/>
         <Button
-          block
-          info
           onPress={() => this.handlRegistration()}
         >Register</Button>
-      </Content>
+    </View>
     );
   }
 }

@@ -1,13 +1,13 @@
 // dependencies
 import React, { Component } from 'react';
-import { StyleSheet } from 'react-native';
 import {
-  Container,
-  Content,
-  Text,
-  Button
-} from 'native-base';
+  View,
+  StyleSheet,
+  AsyncStorage
+} from 'react-native';
 import { connect } from 'react-redux';
+import { Actions } from 'react-native-router-flux';
+import Button from 'react-native-button';
 const t = require('tcomb-form-native');
 
 // actions
@@ -31,7 +31,7 @@ class Login extends Component {
   }
 
   handleLogin() {
-    const formProps = this.refs.login_form;
+    const formProps = this.refs.login_form.getValue();
     if (formProps) {
       const user = {
         username: formProps.username,
@@ -39,26 +39,35 @@ class Login extends Component {
       }
       this.props.loginUser(user);
     }
+    AsyncStorage.getItem('TOKEN', (err, res) => {
+      if (res) {
+        Actions.app();
+      }
+    });
   }
 
   render() {
     return(
-      <Content style={styles.container}>
+      <View style={styles.container}>
         <Form
           ref="login_form"
           type={User}
           options={options}/>
         <Button
-          block
-          info
           onPress={() => this.handleLogin()}
         >Login</Button>
-      </Content>
+    </View>
     );
   }
 }
 
-export default connect(null, actions)(Login);
+function mapStateToProps(state) {
+  return {
+    user: state.auth.user
+  };
+}
+
+export default connect(mapStateToProps, actions)(Login);
 
 const styles = StyleSheet.create({
   container: {

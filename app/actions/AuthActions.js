@@ -11,16 +11,17 @@ import {
 const API_URL = 'http://localhost:3030/api/v1/users';
 
 export function loginUser(user) {
-  return function(dispatch){
+  return function(dispatch) {
+    console.log(user);
+    console.log('In loginUser function');
     axios.post('http://localhost:3030/api/v1/users/login', user)
       .then(res => {
         console.log(res);
-        // updateToken(res.data.token);
-        // dispatch({
-        //   type: LOGIN_USER,
-        //   payload: res.data.user
-        // });
-        // Actions.app();
+        updateToken(res.data.token);
+        dispatch({
+          type: LOGIN_USER,
+          payload: res.data.user
+        });
       })
       .catch(err => {
         console.log(err);
@@ -37,11 +38,11 @@ export function registerUser(user) {
     axios.post('http://localhost:3030/api/v1/users/register', user)
       .then(res => {
         console.log(res);
-        // updateToken(res.data.token);
-        // dispatch({
-        //   type: REGISTER_USER,
-        //   payload: res.data.user
-        // });
+        updateToken(res.data.token);
+        dispatch({
+          type: REGISTER_USER,
+          payload: res.data.user
+        });
       })
       .catch(err => {
         console.log(err);
