@@ -32,10 +32,10 @@ Future Thoughts:
 * Users
   * Full CRUD capability
   * Registration and login form error handling
-  * Store "Party Animal" points
+  * Store "Party Animal" badges
 * Stories
   * Full CRUD capability
-  * Up-vote and down-vote capability
+  * Up-vote capability
   * Confirm story capability
   * "Party Animal" points capability
 * Leaderboard
