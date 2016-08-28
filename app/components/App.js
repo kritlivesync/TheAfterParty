@@ -5,9 +5,9 @@ import { connect } from 'redux';
 
 import store from '../store/Store';
 
+import WelcomePage from './WelcomePage';
 import AuthPageWrapper from './AuthPage/AuthPageWrapper';
 import AppWrapper from './App/AppWrapper';
-import LandingPage from './LandingPage';
 
 export default class App extends Component {
   render() {
@@ -15,8 +15,8 @@ export default class App extends Component {
       <Provider store={store}>
         <Router>
           <Scene key="root">
-            <Scene key="landing" component={LandingPage} hideNavBar={true} intial={true}/>
-            <Scene key="auth" component={AuthPageWrapper} hideNavBar={true}/>
+            <Scene key="welcome" component={WelcomePage} hideNavBar={true} intial={true}/>
+            <Scene key="auth" component={AuthPageWrapper} hideNavBar={true} />
             <Scene key="app" component={AppWrapper} hideNavBar={true}/>
           </Scene>
         </Router>

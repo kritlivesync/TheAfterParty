@@ -3,27 +3,26 @@ import { AsyncStorage } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import {
   TOKEN,
+  LOGOUT_USER,
   LOGIN_USER,
   LOGIN_ERROR,
   REGISTER_USER,
   REGISTER_USER_ERROR
 } from './Types';
 
-export function authOnLoad(token) {
+export function logoutUser() {
   return function(dispatch) {
-    axios.post('http://localhost:3030/api/v1/users/' + token)
-      .then(res => {
-        console.log(res.data.user[0]);
-        const user = {
-          username: res.data.user[0].username,
-          password: res.data.user[0].password
-        };
-        console.log(user);
-        dispatch(loginUser(user));
-      })
-      .catch(err => {
-        console.log('Error in authOnLoad', err);
-      });
+    AsyncStorage.removeItem(TOKEN, (err) => {
+      if (err) {
+        console.log('AsyncStorage error: ', err);
+      } else {
+        Actions.auth();
+        dispatch({
+          type: LOGOUT_USER,
+          payload: 'User logged out'
+        });
+      }
+    });
   }
 }
 
@@ -35,7 +34,7 @@ export function loginUser(user) {
       .then(res => {
         console.log(res.data.user.token);
         updateToken(res.data.user.token);
-        Actions.app({ something: 'something' });
+        Actions.app();
         dispatch({
           type: LOGIN_USER,
           payload: res.data.user
@@ -61,6 +60,7 @@ export function registerUser(user) {
           type: REGISTER_USER,
           payload: res.data.user
         });
+        dispatch(loginUser(res.data.user));
       })
       .catch(err => {
         console.log(err);

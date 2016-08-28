@@ -26,10 +26,6 @@ const options = {
 // component
 class Login extends Component {
 
-  componentDidMount() {
-    this.refs.login_form.getComponent('username').refs.input.focus();
-  }
-
   handleLogin() {
     const formProps = this.refs.login_form.getValue();
     if (formProps) {

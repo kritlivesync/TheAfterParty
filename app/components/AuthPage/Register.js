@@ -3,10 +3,12 @@ import React, { Component } from 'react';
 import {
   View,
   StyleSheet,
-  AlertIOS
+  AlertIOS,
+  AsyncStorage
 } from 'react-native';
 import { connect } from 'react-redux';
 import Button from 'react-native-button';
+
 const t = require('tcomb-form-native');
 
 // actions

@@ -11,9 +11,6 @@ import Register from './Register';
 
 // component
 class AuthPageWrapper extends Component {
-  componentDidMount() {
-    
-  }
   render() {
     return(
       <ScrollableTabView style={{ marginTop: 16 }}>
