@@ -7,12 +7,15 @@ import {
   AsyncStorage,
   Text
 } from 'react-native';
-import { TOKEN } from '../actions/Types';
 import { connect } from 'react-redux';
-import * as actions from '../actions/AuthActions';
-import Button from 'react-native-button';
 import { Actions } from 'react-native-router-flux';
+import Button from 'react-native-button';
 
+// imports
+import { TOKEN } from '../actions/Types';
+import * as actions from '../actions/AuthActions';
+
+// component
 export default class WelcomePage extends Component {
   componentDidMount() {
     AsyncStorage.getItem(TOKEN, (err, token) => {

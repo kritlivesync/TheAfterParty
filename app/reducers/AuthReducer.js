@@ -1,3 +1,4 @@
+// imports
 import {
   LOGIN_USER,
   LOGOUT_USER,
@@ -6,6 +7,7 @@ import {
   REGISTER_USER_ERROR
 } from '../actions/Types';
 
+// reducer
 const auth = (state = {}, action) => {
   switch(action.type) {
     case LOGIN_USER:

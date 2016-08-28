@@ -1,6 +1,9 @@
+// dependencies
 import axios from 'axios';
 import { AsyncStorage } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+
+// imports
 import {
   TOKEN,
   LOGOUT_USER,
@@ -10,6 +13,7 @@ import {
   REGISTER_USER_ERROR
 } from './Types';
 
+// functions
 export function logoutUser() {
   return function(dispatch) {
     AsyncStorage.removeItem(TOKEN, (err) => {

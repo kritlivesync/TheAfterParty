@@ -1,15 +1,19 @@
+// dependencies
 import React, { Component } from 'react';
 import { AsyncStorage } from 'react-native';
 import { Provider } from 'react-redux';
 import { Router, Scene } from 'react-native-router-flux';
 import { connect } from 'redux';
 
+// store
 import store from '../store/Store';
 
+// imports
 import WelcomePage from './WelcomePage';
 import AuthPageWrapper from './AuthPage/AuthPageWrapper';
 import AppWrapper from './App/AppWrapper';
 
+// component
 export default class App extends Component {
   render() {
     return(

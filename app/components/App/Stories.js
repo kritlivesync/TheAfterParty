@@ -6,6 +6,8 @@ import {
 } from 'react-native';
 import Button from 'react-native-button';
 import { connect } from 'react-redux';
+
+// imports
 import * as actions from '../../actions/AuthActions';
 
 // component

@@ -8,10 +8,9 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import Button from 'react-native-button';
-
 const t = require('tcomb-form-native');
 
-// actions
+// imports
 import * as actions from '../../actions/AuthActions';
 
 // form
@@ -60,8 +59,10 @@ class Register extends Component {
   }
 }
 
+// connect to store
 export default connect(null, actions)(Register);
 
+// styles
 const styles = StyleSheet.create({
   container: {
     marginLeft: 10,

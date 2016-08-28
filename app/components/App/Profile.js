@@ -1,20 +1,17 @@
 // dependencies
 import React, { Component } from 'react';
 import {
-  Container,
-  Content,
+  View,
   Text
-} from 'native-base';
+} from 'react-native';
 
 // component
 export default class Profile extends Component {
   render() {
     return(
-      <Container>
-        <Content>
-          <Text>Profile Page</Text>
-        </Content>
-      </Container>
+      <View style={{ margin: 40 }}>
+        <Text>Profile Page</Text>
+      </View>
     );
   }
 }

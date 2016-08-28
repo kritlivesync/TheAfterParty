@@ -57,14 +57,10 @@ class Login extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    user: state.auth.user
-  };
-}
+// connect to store
+export default connect(null, actions)(Login);
 
-export default connect(mapStateToProps, actions)(Login);
-
+// styles
 const styles = StyleSheet.create({
   container: {
     marginLeft: 10,
