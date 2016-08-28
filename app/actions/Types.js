@@ -1,6 +1,4 @@
 export const TOKEN = "TOKEN";
-export const TOKEN_SUCCESS = "TOKEN_SUCCESS";
-export const TOKEN_ERROR = "TOKEN_ERROR";
 export const LOGIN_USER = "LOGIN_USER";
 export const LOGOUT_USER = "LOGOUT_USER";
 export const LOGIN_ERROR = "LOGIN_ERROR";
