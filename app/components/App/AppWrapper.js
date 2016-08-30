@@ -5,6 +5,8 @@ import {
 } from 'react-native';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import Tabs from 'react-native-tabs';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
 
 // imports
 import Stories from './Stories';
@@ -27,34 +29,38 @@ export default class AuthPageWrapper extends Component {
         tintColor='white'
         barTintColor='lightgreen'
       >
-        <TabBarIOS.Item
+        <Icon.TabBarItemIOS
           title="Stories"
+          iconName="beer"
           selected={this.state.selected === 'stories'}
           onPress={() => this.setState({ selected: 'stories'})}
         >
           <Stories />
-        </TabBarIOS.Item>
-        <TabBarIOS.Item
+        </Icon.TabBarItemIOS>
+        <Icon.TabBarItemIOS
           title="Create Story"
+          iconName="pencil"
           selected={this.state.selected === 'create'}
           onPress={() => this.setState({ selected: 'create'})}
         >
           <CreateStory />
-        </TabBarIOS.Item>
-        <TabBarIOS.Item
+        </Icon.TabBarItemIOS>
+        <Icon.TabBarItemIOS
           title="Leaderboard"
+          iconName="list-ol"
           selected={this.state.selected === 'leaderboard'}
           onPress={() => this.setState({ selected: 'leaderboard'})}
         >
           <Leaderboard />
-        </TabBarIOS.Item>
-        <TabBarIOS.Item
+        </Icon.TabBarItemIOS>
+        <Icon.TabBarItemIOS
           title="Profile"
+          iconName="user"
           selected={this.state.selected === 'profile'}
           onPress={() => this.setState({ selected: 'profile'})}
         >
           <Profile />
-        </TabBarIOS.Item>
+        </Icon.TabBarItemIOS>
       </TabBarIOS>
     );
   }
