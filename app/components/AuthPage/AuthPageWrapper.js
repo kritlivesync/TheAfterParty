@@ -21,21 +21,20 @@ export default class AuthPageWrapper extends Component {
   render() {
     return(
       <TabBarIOS
-        unselectedTintColor='grey'
-        tintColor='white'
-        barTintColor='lightgreen'
+        tintColor='#FF7E82'
+        barTintColor='white'
       >
         <Icon.TabBarItemIOS
-          title="Login"
           iconName="home"
+          title="Log In"
           selected={this.state.selected === 'login'}
           onPress={() => this.setState({ selected: 'login'})}
         >
           <Login />
         </Icon.TabBarItemIOS>
         <Icon.TabBarItemIOS
-          title="Register"
           iconName="edit"
+          title="Sign Up"
           selected={this.state.selected === 'register'}
           onPress={() => this.setState({ selected: 'register'})}
         >

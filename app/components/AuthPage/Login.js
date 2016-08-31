@@ -20,7 +20,17 @@ const User = t.struct({
   password: t.String,
 });
 const options = {
-  auto: 'placeholders'
+  fields: {
+    username: {
+      label: 'Username',
+      placeholder: 'fratbro123'
+    },
+    password: {
+      label: 'Password',
+      secureTextEntry: true,
+      placeholder: 'password123'
+    }
+  }
 };
 
 // component
@@ -49,9 +59,12 @@ class Login extends Component {
           ref="login_form"
           type={User}
           options={options}/>
-        <Button
-          onPress={() => this.handleLogin()}
-        >Login</Button>
+          <Button
+            onPress={() => this.handleLogin()}
+            containerStyle={styles.buttonContainerStyle}
+            style={styles.buttonStyle}>
+            Log In
+          </Button>
     </View>
     );
   }
@@ -67,4 +80,14 @@ const styles = StyleSheet.create({
     marginRight: 10,
     marginTop: 160
   },
+  buttonStyle: {
+    fontSize: 20,
+    color: 'white'
+  },
+  buttonContainerStyle: {
+    padding:10,
+    height:45,
+    overflow:'hidden',
+    backgroundColor: '#FF7E82'
+  }
 });

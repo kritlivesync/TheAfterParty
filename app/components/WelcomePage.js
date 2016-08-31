@@ -16,14 +16,15 @@ import { TOKEN } from '../actions/Types';
 import * as actions from '../actions/AuthActions';
 
 // component
-export default class WelcomePage extends Component {
+class WelcomePage extends Component {
   componentDidMount() {
     AsyncStorage.getItem(TOKEN, (err, token) => {
       console.log(token);
       if (err || token === null) {
-        Actions.auth();
+        // Actions.auth();
       } else {
-        Actions.app();
+        this.props.beforeLoadActions(token);
+        // Actions.app();
       }
     });
   }
@@ -35,3 +36,5 @@ export default class WelcomePage extends Component {
     );
   }
 }
+
+export default connect(null, actions)(WelcomePage);

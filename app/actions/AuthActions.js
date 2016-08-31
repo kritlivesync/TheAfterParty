@@ -2,6 +2,7 @@
 import axios from 'axios';
 import { AsyncStorage } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import { fetchStories } from './StoryActions';
 
 // imports
 import {
@@ -14,6 +15,21 @@ import {
 } from './Types';
 
 // functions
+export function beforeLoadActions(token) {
+  return function(dispatch) {
+    dispatch(fetchStories());
+
+    // get the info of the current user
+    axios.get('http://localhost:3030/api/v1/users/' + token)
+      .then(res => {
+        console.log(res.data.user[0].username);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+}
+
 export function logoutUser() {
   return function(dispatch) {
     AsyncStorage.removeItem(TOKEN, (err) => {
