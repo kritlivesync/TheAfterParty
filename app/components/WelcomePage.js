@@ -21,10 +21,9 @@ class WelcomePage extends Component {
     AsyncStorage.getItem(TOKEN, (err, token) => {
       console.log(token);
       if (err || token === null) {
-        // Actions.auth();
+        Actions.auth();
       } else {
         this.props.beforeLoadActions(token);
-        // Actions.app();
       }
     });
   }

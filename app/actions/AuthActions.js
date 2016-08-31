@@ -25,6 +25,7 @@ export function beforeLoadActions(token) {
     axios.get('http://localhost:3030/api/v1/users/' + token)
       .then(res => {
         console.log('Response: ', res.data.user[0]);
+        Actions.app();
         dispatch({
           type: FETCH_USER,
           payload: res.data.user[0]
