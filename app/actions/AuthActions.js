@@ -7,6 +7,8 @@ import { fetchStories } from './StoryActions';
 // imports
 import {
   TOKEN,
+  FETCH_USER,
+  FETCH_USER_ERROR,
   LOGOUT_USER,
   LOGIN_USER,
   LOGIN_ERROR,
@@ -22,10 +24,18 @@ export function beforeLoadActions(token) {
     // get the info of the current user
     axios.get('http://localhost:3030/api/v1/users/' + token)
       .then(res => {
-        console.log(res.data.user[0].username);
+        console.log('Response: ', res.data.user[0]);
+        dispatch({
+          type: FETCH_USER,
+          payload: res.data.user[0]
+        });
       })
       .catch(error => {
-        console.log(error);
+        console.log('Error: ', error);
+        dispatch({
+          type: FETCH_USER_ERROR,
+          payload: res.data.user[0]
+        });
       });
   }
 }

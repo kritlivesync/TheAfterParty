@@ -3,7 +3,7 @@ import {
   FETCH_STORIES_ERROR,
 } from '../actions/Types';
 
-const story = (state = {}, action) => {
+const stories = (state = {}, action) => {
   switch (action.type) {
     case FETCH_STORIES:
       return {
@@ -19,4 +19,4 @@ const story = (state = {}, action) => {
   return state;
 }
 
-export default story;
+export default stories;

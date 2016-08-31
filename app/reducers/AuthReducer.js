@@ -1,5 +1,7 @@
 // imports
 import {
+  FETCH_USER,
+  FETCH_USER_ERROR,
   LOGIN_USER,
   LOGOUT_USER,
   LOGIN_ERROR,
@@ -10,6 +12,16 @@ import {
 // reducer
 const auth = (state = {}, action) => {
   switch(action.type) {
+    case FETCH_USER:
+      return {
+        ...state,
+        user: action.payload
+      };
+    case FETCH_USER_ERROR:
+      return {
+        ...state,
+        fetch_user_error: action.payload
+      };
     case LOGIN_USER:
       return {
         ...state,
@@ -18,7 +30,7 @@ const auth = (state = {}, action) => {
     case LOGIN_ERROR:
       return {
         ...state,
-        error: 'Unable to login user'
+        login_error: 'Unable to login user'
       };
     case REGISTER_USER:
       return {
@@ -28,7 +40,7 @@ const auth = (state = {}, action) => {
     case REGISTER_USER_ERROR:
       return {
         ...state,
-        error: 'Unable to register user'
+        register_user_error: 'Unable to register user'
       };
     case LOGOUT_USER:
       return {
