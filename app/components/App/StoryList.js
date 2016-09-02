@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 
 // component
-export default StoryList extends Component {
+export default class StoryList extends Component {
   constructor(props) {
     super(props);
     this.ds = ListView.DataSource({
@@ -29,8 +29,7 @@ export default StoryList extends Component {
   renderSingleStory(story) {
     return(
       <View>
-        <Text>{story.author}</Text>
-        <Text>{story.school}</Text>
+        <Text>{story._id}</Text>
         <Text>{story.body}</Text>
       </View>
     );

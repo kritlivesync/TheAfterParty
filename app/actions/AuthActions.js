@@ -31,11 +31,11 @@ export function beforeLoadActions(token) {
           payload: res.data.user[0]
         });
       })
-      .catch(error => {
+      .catch(function(error) {
         console.log('Error: ', error);
         dispatch({
           type: FETCH_USER_ERROR,
-          payload: res.data.user[0]
+          payload: error 
         });
       });
   }
