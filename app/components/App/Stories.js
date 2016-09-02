@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 
 // imports
-
+import StoryList from './StoryList';
 
 // component
 export default class Stories extends Component {
