@@ -25,7 +25,7 @@ export default class AuthPageWrapper extends Component {
   render() {
     return(
       <TabBarIOS
-        unselectedTintColor='green'
+        unselectedTintColor='gray'
         tintColor='#FF7E82'
         barTintColor='white'
       >

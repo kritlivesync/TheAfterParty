@@ -7,6 +7,8 @@ import {
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 
+
+
 // component
 export default class StoryList extends Component {
   constructor(props) {
@@ -16,21 +18,17 @@ export default class StoryList extends Component {
     });
 
     this.state = {
-      dataSource: this.ds.cloneWithRows(this.props.stories),
+      dataSource: this.ds.cloneWithRows(fakeStories),
     };
-  }
-
-  componentWillRecieveProps(nextProps) {
-    this.setState({
-      dataSource: this.ds.cloneWithRows(nextProps.stories),
-    });
   }
 
   renderSingleStory(story) {
     return(
       <View>
-        <Text>{story._id}</Text>
+        <Text>{story.title}</Text>
         <Text>{story.body}</Text>
+        <Text>Upvotes: {story.upvotes}</Text>
+        <Text>Confirms: {story.confirms}</Text>
       </View>
     );
   }
@@ -44,3 +42,9 @@ export default class StoryList extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+})
